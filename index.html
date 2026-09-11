@@ -1235,7 +1235,7 @@ fieldset {
 
           <div class="filter-note">
             <span class="mini-orbit" aria-hidden="true"></span>
-            <p><strong>Update-ready</strong> Fix metadata is layered over the generated ledger.</p>
+            <p><strong>Media verified</strong> Every finding has screenshot or recording evidence. Source links require repository access.</p>
             <a href="https://github.com/capitalinvestmentclub/webapp/pull/2323">Open source PR →</a>
           </div>
         </aside>
@@ -5694,7 +5694,7 @@ window.PR_REVIEW_UPDATES = {
           ${evidenceLink(
             'Verified media evidence',
             finding.evidenceUrl,
-            `${finding.mediaEvidenceCount} screenshot or recording file${finding.mediaEvidenceCount === 1 ? '' : 's'} confirmed`,
+            `${finding.mediaEvidenceCount} screenshot or recording file${finding.mediaEvidenceCount === 1 ? '' : 's'} confirmed · repository access required`,
           )}
         </div>
       </section>

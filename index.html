@@ -1235,7 +1235,7 @@ fieldset {
 
           <div class="filter-note">
             <span class="mini-orbit" aria-hidden="true"></span>
-            <p><strong>Media verified</strong> Every finding has screenshot or recording evidence. Source links require repository access.</p>
+            <p><strong>Media verified</strong> Every finding uses its newest relevant screenshot or recording run.</p>
             <a href="https://github.com/capitalinvestmentclub/webapp/pull/2323">Open source PR →</a>
           </div>
         </aside>
@@ -5685,16 +5685,20 @@ window.PR_REVIEW_UPDATES = {
       <section class="detail-section">
         <h3>Issue evidence</h3>
         <div class="evidence-links">
-          ${evidenceLink('Run record', finding.sourceUrl, `${finding.source}:${finding.line}`)}
+          ${evidenceLink(
+            finding.evidenceRun !== finding.source ? 'Original finding record' : 'Finding run record',
+            finding.sourceUrl,
+            `${finding.source}:${finding.line}`,
+          )}
           ${
             finding.evidenceRun !== finding.source
-              ? evidenceLink('Media-backed rerun', finding.evidenceRunUrl, finding.evidenceRun)
+              ? evidenceLink('Latest media-backed run', finding.evidenceRunUrl, finding.evidenceRun)
               : ''
           }
           ${evidenceLink(
-            'Verified media evidence',
+            'Latest verified media',
             finding.evidenceUrl,
-            `${finding.mediaEvidenceCount} screenshot or recording file${finding.mediaEvidenceCount === 1 ? '' : 's'} confirmed · repository access required`,
+            `${finding.mediaEvidenceCount} screenshot or recording file${finding.mediaEvidenceCount === 1 ? '' : 's'} confirmed`,
           )}
         </div>
       </section>
